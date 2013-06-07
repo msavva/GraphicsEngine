@@ -21,6 +21,8 @@ namespace GraphicsEngine
 	public:
 
 		CommonMesh();
+		CommonMesh(const CommonMesh& other);
+		CommonMesh& operator=(const CommonMesh& other);
 
 		// Exposing commonly-used attributes
 		// You can subclass CommonMesh if you want to expose new attributes in this way.
@@ -58,6 +60,8 @@ namespace GraphicsEngine
 
 		void ComputeNormals();
 
+		Eigen::Vector3f Normal(const MeshFace& f, bool areaWeighted = false) const;
+
 		virtual void Append(CommonMesh* other, const Transform& t);
 
 		// Create an XY plane centered at the origin with the requested width,
@@ -85,9 +89,17 @@ namespace GraphicsEngine
 
 		virtual void FromAssimpMesh(aiMesh* mesh);
 
-	protected:
 
-		Eigen::Vector3f Normal(const MeshFace& f, bool areaWeighted = false) const;
+		/* Topology */
+
+		void ConnectedComponents(std::vector<CommonMesh*>& outComps, bool connectCollocatedVerts = false) const;
+
+		void FuseCollocatedVertices();
+
+	private:
+
+		// Form vertex equivalence classes based on vertex collocation
+		void VertexEquivalenceClasses(std::vector< std::vector<int> >& outClasses, float distThresh = 0.000001f) const;
 	};
 }
 
