@@ -5,12 +5,12 @@ Framework for getting graphics applications up and running. A level of abstracti
 
 ## Dependencies
 
-- glew (http://glew.sourceforge.net) - Tested against version 1.7.0
+- glew (http://glew.sourceforge.net) - Tested against version 1.7.0 [compile from source]
 - Eigen (http://eigen.tuxfamily.org) - Tested against version 3.1.1
-- assimp (http://assimp.sourceforge.net) - Tested against version 2.0
-- FreeImage (http://freeimage.sourceforge.net) - Tested against version 3.15.3
-- ANN (http://www.cs.umd.edu/~mount/ANN/) - Tested against version 1.1.2
-- (Optional) FLTK (http://www.fltk.org) - Tested against version 1.3.0
+- assimp (http://assimp.sourceforge.net) - Tested against version 2.0 [use precompiled 32bit release]
+- FreeImage (http://freeimage.sourceforge.net) - Tested against version 3.15.3 [compile, modify Debug to use Multi-threaded Debug DLL (/MDd) for all components]
+- ANN (http://www.cs.umd.edu/~mount/ANN/) - Tested against version 1.1.2 [use precompiled 32bit]
+- (Optional) FLTK (http://www.fltk.org) - Tested against version 1.3.0 [compile from source]
 
 ## Building
 
